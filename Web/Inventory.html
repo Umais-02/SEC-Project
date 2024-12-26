@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="Inventory.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard / Inventory Management</h1>
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Reorder Point</th>
+                    <th>Location</th>
+                    <th>Supplier</th>
+                    <th>Last Restocked</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="itemDialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close">&times;</span>
+            <h2 id="dialogTitle"></h2>
+            <div id="dialogContent"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="Inventory.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Dashboard / Transport Management</h1>
+        
+        <!-- Tabs -->
+        <div class="mb-4">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded tab-button" data-tab="vehicle">Vehicle</button>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded tab-button" data-tab="driver">Driver</button>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded tab-button" data-tab="delivery">Delivery</button>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded tab-button" data-tab="maintenance">Maintenance</button>
+        </div>
+
+        <!-- Vehicle Management -->
+        <div id="vehicle" class="tab-content">
+            <h2 class="text-xl font-semibold mb-2">Vehicle Management</h2>
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Total Vehicles</h3>
+                    <p class="text-2xl">3</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Active Deliveries</h3>
+                    <p class="text-2xl">2</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Transport Cost</h3>
+                    <p class="text-2xl">$7.32</p>
+                </div>
+            </div>
+            <table class="w-full bg-white shadow-md rounded mb-4">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2 text-left">Vehicle ID</th>
+                        <th class="p-2 text-left">Status</th>
+                        <th class="p-2 text-left">Location</th>
+                        <th class="p-2 text-left">Driver</th>
+                        <th class="p-2 text-left">Last Service</th>
+                        <th class="p-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-2">Truck 1</td>
+                        <td class="p-2"><span class="bg-green-200 text-green-800 py-1 px-2 rounded-full text-sm">Active</span></td>
+                        <td class="p-2">Route 5A</td>
+                        <td class="p-2">John Doe</td>
+                        <td class="p-2">2024-01-15</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Issue reported for Truck 1')">Report Issue</button></td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">Van 2</td>
+                        <td class="p-2"><span class="bg-yellow-200 text-yellow-800 py-1 px-2 rounded-full text-sm">Maintenance</span></td>
+                        <td class="p-2">Warehouse A</td>
+                        <td class="p-2">Jane Smith</td>
+                        <td class="p-2">2024-01-10</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Issue reported for Van 2')">Report Issue</button></td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">Truck 3</td>
+                        <td class="p-2"><span class="bg-gray-200 text-gray-800 py-1 px-2 rounded-full text-sm">Inactive</span></td>
+                        <td class="p-2">Warehouse B</td>
+                        <td class="p-2">Mike Johnson</td>
+                        <td class="p-2">2024-01-20</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Issue reported for Truck 3')">Report Issue</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="alert('Vehicle report generated')">Generate Report</button>
+        </div>
+
+        <!-- Driver Management -->
+        <div id="driver" class="tab-content">
+            <h2 class="text-xl font-semibold mb-2">Driver Management</h2>
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Total Drivers</h3>
+                    <p class="text-2xl">3</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Active Drivers</h3>
+                    <p class="text-2xl">2</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Transport Cost</h3>
+                    <p class="text-2xl">$7.32</p>
+                </div>
+            </div>
+            <table class="w-full bg-white shadow-md rounded mb-4">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2 text-left">Driver Name</th>
+                        <th class="p-2 text-left">Status</th>
+                        <th class="p-2 text-left">Assigned Vehicle</th>
+                        <th class="p-2 text-left">Current Route</th>
+                        <th class="p-2 text-left">Deliveries Today</th>
+                        <th class="p-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-2">John Doe</td>
+                        <td class="p-2"><span class="bg-green-200 text-green-800 py-1 px-2 rounded-full text-sm">On Duty</span></td>
+                        <td class="p-2">Truck 1</td>
+                        <td class="p-2">Route 5A</td>
+                        <td class="p-2">3</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Route optimized for John Doe')">Optimize Route</button></td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">Jane Smith</td>
+                        <td class="p-2"><span class="bg-gray-200 text-gray-800 py-1 px-2 rounded-full text-sm">Off Duty</span></td>
+                        <td class="p-2">Van 2</td>
+                        <td class="p-2">-</td>
+                        <td class="p-2">0</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Route optimized for Jane Smith')">Optimize Route</button></td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">Mike Johnson</td>
+                        <td class="p-2"><span class="bg-yellow-200 text-yellow-800 py-1 px-2 rounded-full text-sm">On Break</span></td>
+                        <td class="p-2">Truck 3</td>
+                        <td class="p-2">Warehouse B</td>
+                        <td class="p-2">2</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Route optimized for Mike Johnson')">Optimize Route</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="alert('New route assigned')">Assign Route</button>
+        </div>
+
+        <!-- Delivery Management -->
+        <div id="delivery" class="tab-content">
+            <h2 class="text-xl font-semibold mb-2">Delivery Management</h2>
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Total Deliveries</h3>
+                    <p class="text-2xl">3</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Active Deliveries</h3>
+                    <p class="text-2xl">2</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Transport Cost</h3>
+                    <p class="text-2xl">$7.32</p>
+                </div>
+            </div>
+            <table class="w-full bg-white shadow-md rounded mb-4">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2 text-left">Delivery ID</th>
+                        <th class="p-2 text-left">Status</th>
+                        <th class="p-2 text-left">Driver</th>
+                        <th class="p-2 text-left">Vehicle</th>
+                        <th class="p-2 text-left">Destination</th>
+                        <th class="p-2 text-left">ETA</th>
+                        <th class="p-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-2">DEF1</td>
+                        <td class="p-2"><span class="bg-green-200 text-green-800 py-1 px-2 rounded-full text-sm">In Progress</span></td>
+                        <td class="p-2">John Doe</td>
+                        <td class="p-2">Truck 1</td>
+                        <td class="p-2">Warehouse A</td>
+                        <td class="p-2">30 mins</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Report generated for DEF1')">Generate Report</button></td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">DEF2</td>
+                        <td class="p-2"><span class="bg-gray-200 text-gray-800 py-1 px-2 rounded-full text-sm">Completed</span></td>
+                        <td class="p-2">Jane Smith</td>
+                        <td class="p-2">Van 2</td>
+                        <td class="p-2">Store B</td>
+                        <td class="p-2">-</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Report generated for DEF2')">Generate Report</button></td>
+                    </tr>
+                    <tr>
+                        <td class="p-2">DEF3</td>
+                        <td class="p-2"><span class="bg-yellow-200 text-yellow-800 py-1 px-2 rounded-full text-sm">Scheduled</span></td>
+                        <td class="p-2">Mike Johnson</td>
+                        <td class="p-2">Truck 3</td>
+                        <td class="p-2">Warehouse C</td>
+                        <td class="p-2">2 hours</td>
+                        <td class="p-2"><button class="bg-blue-500 text-white px-2 py-1 rounded" onclick="alert('Report generated for DEF3')">Generate Report</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="alert('New delivery scheduled')">Schedule Delivery</button>
+        </div>
+
+        <!-- Maintenance Management -->
+        <div id="maintenance" class="tab-content">
+            <h2 class="text-xl font-semibold mb-2">Maintenance Scheduling</h2>
+            <p class="text-sm text-gray-600 mb-4">Schedule and Track Vehicle Maintenance</p>
+            <table class="w-full bg-white shadow-md rounded mb-4">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2 text-left">Vehicle</th>
+                        <th class="p-2 text-left">Date</th>
+                        <th class="p-2 text-left">Type</th>
+                        <th class="p-2 text-left">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-2">Truck 2</td>
+                        <td class="p-2">2024/05/30</td>
+                        <td class="p-2">Routine</td>
+                        <td class="p-2">Oil change and tire rotation</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="grid grid-cols-4 gap-4 mb-4">
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Total Vehicles</h3>
+                    <p class="text-2xl">3</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Active Deliveries</h3>
+                    <p class="text-2xl">0</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Available Drivers</h3>
+                    <p class="text-2xl">2</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="font-semibold">Transport Cost</h3>
+                    <p class="text-2xl">$7.32</p>
+                </div>
+            </div>
+            <div class="flex justify-between">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="alert('Transport report generated')">Generate Transport Report</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="alert('New delivery scheduled')">Schedule New Delivery</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Set the first tab as active by default
+        tabButtons[0].click();
+    </script>
+</body>
+</html>
