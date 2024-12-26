@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 428px;
+            height: 926px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            color: #111827;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            padding: 12px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .item {
+            background-color: #f9fafb;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .item-details span {
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
+        .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .in-stock {
+            background-color: #d1fae5;
+            color: #047857;
+        }
+
+        .reorder {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .action-buttons button {
+            border: none;
+            padding: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            background-color: #f3f4f6;
+            color: #374151;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .action-buttons button:hover {
+            background-color: #e5e7eb;
+        }
+
+        .restock {
+            background-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .restock:hover {
+            background-color: #6ee7b7;
+        }
+
+        .details {
+            background-color: #bfdbfe;
+            color: #1d4ed8;
+        }
+
+        .details:hover {
+            background-color: #93c5fd;
+        }
+
+        .popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .popup-content p {
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        .popup-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .popup-content button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Inventory Management</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Inventory">
+            <button>Add New Item</button>
+        </div>
+        <div class="item">
+            <div class="item-details">
+                <span>Widget A</span>
+                <span>Quantity: 92</span>
+                <span>Location: Warehouse A</span>
+            </div>
+            <div class="status in-stock">In Stock</div>
+            <div class="action-buttons">
+                <button class="restock" onclick="showRestockPopup()">Restock</button>
+                <button class="details" onclick="showDetailsPopup('Widget A', 92, 'Warehouse A')">Details</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-details">
+                <span>Widget B</span>
+                <span>Quantity: 10</span>
+                <span>Location: Warehouse B</span>
+            </div>
+            <div class="status in-stock">In Stock</div>
+            <div class="action-buttons">
+                <button class="restock" onclick="showRestockPopup()">Restock</button>
+                <button class="details" onclick="showDetailsPopup('Widget B', 10, 'Warehouse B')">Details</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-details">
+                <span>Widget C</span>
+                <span>Quantity: 0</span>
+                <span>Location: Warehouse C</span>
+            </div>
+            <div class="status reorder">Reorder</div>
+            <div class="action-buttons">
+                <button class="restock" onclick="showRestockPopup()">Restock</button>
+                <button class="details" onclick="showDetailsPopup('Widget C', 0, 'Warehouse C')">Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content" id="popup-content">
+            <!-- Popup content will be injected here -->
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('popup');
+        const popupContent = document.getElementById('popup-content');
+
+        function showRestockPopup() {
+            popupContent.innerHTML = `
+                <h2>Item Restocked!</h2>
+                <p>50 units have been added to inventory.</p>
+                <button onclick="closePopup()">Close</button>
+            `;
+            popup.style.display = 'flex';
+        }
+
+        function showDetailsPopup(name, quantity, location) {
+            popupContent.innerHTML = `
+                <h2>${name} Details</h2>
+                <p>Quantity: ${quantity}</p>
+                <p>Location: ${location}</p>
+                <button onclick="closePopup()">Close</button>
+            `;
+            popup.style.display = 'flex';
+        }
+
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

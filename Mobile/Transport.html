@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Management - Mobile</title>
+  <style>
+    /* Reset styles */
+    body, h2, h3, p, button {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 10px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 480px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      background-color: #eef4ff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    header h2 {
+      font-size: 18px;
+      color: #444;
+    }
+
+    .tabs {
+      margin-top: 10px;
+    }
+
+    .tabs button {
+      background-color: #d7e8ff;
+      border: none;
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .tabs button:hover {
+      background-color: #bcd4ff;
+    }
+
+    /* Vehicle Management */
+    .vehicle-management {
+      padding: 15px;
+    }
+
+    .vehicle-management h3 {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 5px;
+    }
+
+    .vehicle-table {
+      margin-top: 10px;
+    }
+
+    .vehicle-row {
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .vehicle-row p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .report-btn {
+      background-color: #ff4d4d;
+      color: #fff;
+      padding: 5px 8px;
+      font-size: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .report-btn:hover {
+      background-color: #ff6666;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px;
+      border-top: 1px solid #ddd;
+      background-color: #eef4ff;
+    }
+
+    .stat-item {
+      flex: 1 1 48%;
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    /* Footer Buttons */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .action-btn {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .action-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>Dashboard / Transport Management</h2>
+      <div class="tabs">
+        <button>Vehicles</button>
+        <button>Drivers</button>
+        <button>Deliveries</button>
+        <button>Maintenance</button>
+      </div>
+    </header>
+
+    <section class="vehicle-management">
+      <h3>Vehicle Management</h3>
+      <p>Manage and track your fleet of vehicles</p>
+      <div class="vehicle-table">
+        <div class="vehicle-row">
+          <p><strong>Truck 1</strong> (Heavy Duty)</p>
+          <p>Status: <span>Available</span></p>
+          <p>Location: Warehouse A</p>
+          <p>Fuel: 75%</p>
+          <button class="report-btn">Report Breakdown</button>
+        </div>
+        <div class="vehicle-row">
+          <p><strong>Van 1</strong> (Light Duty)</p>
+          <p>Status: <span>In-Transit</span></p>
+          <p>Location: Route 50</p>
+          <p>Fuel: 0%</p>
+          <button class="report-btn">Report Breakdown</button>
+        </div>
+        <div class="vehicle-row">
+          <p><strong>Truck 2</strong> (Medium Duty)</p>
+          <p>Status: <span>Maintenance</span></p>
+          <p>Location: Service Center</p>
+          <p>Fuel: 100%</p>
+          <button class="report-btn">Report Breakdown</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-item">Total Vehicles: <strong>3</strong></div>
+      <div class="stat-item">Available Drivers: <strong>2</strong></div>
+      <div class="stat-item">Active Deliveries: <strong>0</strong></div>
+      <div class="stat-item">Transport Cost: <strong>$7.32</strong></div>
+    </section>
+
+    <footer>
+      <button class="action-btn">Generate Transport Report</button>
+      <button class="action-btn">Schedule New Delivery</button>
+    </footer>
+  </div>
+  <script>
+    document.querySelectorAll(".report-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        alert("Breakdown reported for this vehicle!");
+      });
+    });
+  </script>
+</body>
+</html>
